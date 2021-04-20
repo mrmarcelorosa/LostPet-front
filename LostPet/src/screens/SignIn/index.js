@@ -1,6 +1,8 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import { Text } from 'react-native';
-import {useNavigation} from '@react-navigation/native'
+import {useNavigation} from '@react-navigation/native';
+import AsyncStorage from '@react-native-community/async-storage';
+import {UserContext} from '../../contexts/UserContext';
 import { 
     Container,
     InputArea,
@@ -11,13 +13,15 @@ import {
     SignMessageButtonTextBold
  } from './styles';
  import SingInput from '../../components/SignInput';
- import EmailIcon from '../../assets/email.svg';
+ import PersonIcon from '../../assets/person.svg';
  import LockIcon from '../../assets/lock.svg';
+ import Api from '../../Api';
 
 export default () => {
+    const {dispatch: userDispatch} = useContext(UserContext);
     const navigation = useNavigation();
 
-    const [emailField, setEmailField] = useState('');
+    const [nameField, setNameField] = useState('');
     const [passwordField, setPasswordField] = useState('');
 
     const handleMessageButtonClick = () =>{
@@ -27,8 +31,23 @@ export default () => {
 
     }
 
-    const handleSignClick = () =>{
-        
+    const handleSignClick = async () =>{
+        if(nameField != '' && passwordField != ''){
+            try{
+                let json = await Api.signIn(nameField, passwordField)
+                if(json.token){
+                    await AsyncStorage.setItem('token', json.token);
+                    navigation.reset({
+                        routes:[{name:'MainTab'}]
+                    });
+                }else {
+                    alert('E-mail ou senha incorretos');
+                }
+            } catch(error){
+            }
+        }else{
+            alert("Preencha os campos!");
+        }
     }
 
 
@@ -37,10 +56,10 @@ export default () => {
         <Container>
             <InputArea>
                 <SingInput 
-                    IconSvg={EmailIcon} 
-                    placeholder="Digite seu e-mail" 
-                    value={emailField}
-                    onChangeText={t=>setEmailField(t)}
+                    IconSvg={PersonIcon} 
+                    placeholder="Digite seu usuário" 
+                    value={nameField}
+                    onChangeText={t=>setNameField(t)}
                 />
 
                 <SingInput 
