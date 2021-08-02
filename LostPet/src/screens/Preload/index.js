@@ -5,6 +5,8 @@ import {useNavigation} from '@react-navigation/native'
 
 
 import Logo from '../../assets/logo.svg'
+import homeIcon from '../../assets/homeIcon.svg';
+
 
 export default () => {
 
@@ -15,6 +17,9 @@ export default () => {
             const token = await AsyncStorage.getItem('token')
             if(token){
                 //validar o token
+                /*navigation.reset({
+                    routes:[{name:'MainTab'}]
+                });*/
                 navigation.navigate('SignIn')
             }else{
                 //redireciona para o login
@@ -29,6 +34,7 @@ export default () => {
     return (
         <Container>
             <Logo width="100%" height="160"></Logo>    
+           
             <LoadingIcon size="large" color="#FFFFFF"/> 
 
         </Container>

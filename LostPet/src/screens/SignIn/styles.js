@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 
 export const Container = styled.SafeAreaView`
-    background-color: #71b85c;
+    background-color: #ffffff;
     flex: 1;
     justify-content: center;
     align-items: center;
@@ -14,14 +14,14 @@ export const InputArea = styled.View`
 `;
 export const CustomButton = styled.TouchableOpacity`
     height: 60px;
-    background-color: #ffc772;
+    background-color: #9e7865;
     border-radius: 30px;
     justify-content: center;
     align-items: center;
 `;
 export const CustomButtonText = styled.Text`
     font-size: 18px;
-    color: #000000;
+    color: #ffffff;
 `;
 export const SignMessageButton = styled.TouchableOpacity`
     flex-direction: row;
@@ -31,11 +31,11 @@ export const SignMessageButton = styled.TouchableOpacity`
 `;
 export const SignMessageButtonText = styled.Text`
     font-size: 16px;
-    color: #fffefc;
+    color: #9e7865;
 `;
 export const SignMessageButtonTextBold = styled.Text`
     font-size: 16px;
-    color: #fffefc;
+    color: #9e7865;
     font-weight: bold;
     margin-left: 5px;
 `;
