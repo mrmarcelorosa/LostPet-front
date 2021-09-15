@@ -34,6 +34,7 @@ export default () => {
     }
 
     const handleSignClick = async () =>{
+        
         if(nameField != '' && passwordField != '' && emailField != ''){
             try{
                 let json = await Api.signUp(nameField, emailField, passwordField)

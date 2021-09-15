@@ -36,7 +36,7 @@ export default () => {
             try{
                 let json = await Api.signIn(nameField, passwordField)
                 if(json.token){
-                    await AsyncStorage.setItem('token', json.token);
+                    await AsyncStorage.setItem('token', json.token);                    
                     navigation.reset({
                         routes:[{name:'MainTab'}]
                     });
@@ -57,7 +57,7 @@ export default () => {
             <InputArea>
                 <SingInput 
                     IconSvg={PersonIcon} 
-                    placeholder="Digite seu usuário" 
+                    placeholder="Digite seu email" 
                     value={nameField}
                     onChangeText={t=>setNameField(t)}
                 />
