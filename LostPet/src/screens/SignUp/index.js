@@ -83,7 +83,7 @@ export default () => {
                 />
 
                 <CustomButton onPress={handleSignClick}>
-                    <CustomButtonText>SIGN IN</CustomButtonText>
+                    <CustomButtonText>ENTRAR</CustomButtonText>
                 </CustomButton>
 
             </InputArea>

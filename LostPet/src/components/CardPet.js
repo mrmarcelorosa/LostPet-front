@@ -64,7 +64,6 @@ export default props => {
 
     const handleClick = () => {
         navigation.navigate('NewPet', { ...props.data, new: false })
-        console.log("Pet to edit",props.data)
     }
 
     const handleClickDelete = async () => {

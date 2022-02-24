@@ -33,10 +33,6 @@ export default props => {
     }, [props.route, props.navigation])
 
     
-
-
-
-
     return (
         <Container>
             <Scroller>

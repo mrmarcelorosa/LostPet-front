@@ -4,6 +4,8 @@ import HomeIcon from '../assets/homeIcon.svg';
 import NewIcon from '../assets/newIcon.svg';
 import PetIcon from '../assets/pet.svg';
 import PersonIcon from '../assets/person.svg';
+import MensageIcon from '../assets/mensagem.svg';
+import VacinaIcon from '../assets/vacina.svg';
 
 
 
@@ -33,6 +35,7 @@ const TabItemCenter = styled.TouchableOpacity`
 export default ({state, navigation}) => {
 
     const goTo = (screenName)=>{
+        console.log("index"+ state.index)
         navigation.navigate(screenName);
     }
 
@@ -41,14 +44,20 @@ export default ({state, navigation}) => {
     return(
         <TabArea>
             <TabItem onPress={()=>goTo('Home')}>
-                <HomeIcon style={{opacity: state.index===0? 1 : 0.5}} width="24" height="24" fill="#9e7865" />
-            </TabItem>      
+                <HomeIcon style={{opacity: 1}} width="24" height="24" fill="#9e7865" />
+            </TabItem>   
+            <TabItem onPress={()=>goTo('Profile')}>
+                <MensageIcon style={{opacity: 1}} width="24" height="24" fill="#9e7865" />
+            </TabItem>     
             <TabItemCenter onPress={()=>goTo('Home')}>
                 <PetIcon width="32" height="32" fill="#9e7865" />
             </TabItemCenter> 
+            <TabItem onPress={()=>goTo('Ficha')}> 
+                <VacinaIcon style={{opacity: 1}} width="24" height="24" fill="#9e7865" />
+            </TabItem>   
             <TabItem onPress={()=>goTo('Profile')}> 
-                <PersonIcon style={{opacity: state.index===2? 1 : 0.5}} width="24" height="24" fill="#9e7865" />
-            </TabItem>       
+                <PersonIcon style={{opacity: 1}} width="24" height="24" fill="#9e7865" />
+            </TabItem>     
         </TabArea>
     );
 }

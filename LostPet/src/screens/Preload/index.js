@@ -24,15 +24,18 @@ export default () => {
                     //await AsyncStorage.setItem('user',JSON.stringify(user))
                 }catch(error){
                     alert(error);
-                }
+                }*/
                 
-                navigation.reset({
-                    routes:[{name:'MainTab'}]
-                });*/
-                navigation.navigate('SignIn')
+                  navigation.reset({
+                      routes:[{name:'MainTab'}]
+                  });
+                //navigation.navigate('SignIn')
             }else{
                 //redireciona para o login
-                navigation.navigate('SignIn')
+                navigation.reset({
+                    routes:[{name:'MainTab'}]
+                })
+                //navigation.navigate('SignIn')
 
             }
 

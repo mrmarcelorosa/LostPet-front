@@ -2,6 +2,8 @@ import AsyncStorage from "@react-native-community/async-storage";
 import moment from "moment";
 import { ThemeConsumer } from "styled-components/native";
 
+//172.17.1.172
+//172.17.1.187
 const BASE_API = 'http://172.17.1.187:8000';
 
 export default {
