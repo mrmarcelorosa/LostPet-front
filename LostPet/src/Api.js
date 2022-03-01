@@ -4,7 +4,7 @@ import { ThemeConsumer } from "styled-components/native";
 
 //172.17.1.172
 //172.17.1.187
-const BASE_API = 'http://172.17.1.187:8000';
+const BASE_API = 'http://172.17.1.172:8000';
 
 export default {
     checkToken: async (token) => {
@@ -116,6 +116,20 @@ export default {
             },
         });
         const json = await req.json();
+        return json;
+    },
+
+    createFicha: async (nome, tipo, data, pet) => {
+        data = moment(data.toString(),'DD/MM/AAAA').format('YYYY-MM-DD').toString();
+        const req = await fetch(`${BASE_API}/api/fichas/`, {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ nome, tipo, data, pet })
+        });
+        const json = await req.json(nome, tipo, data,pet );
         return json;
     },
 

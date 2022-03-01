@@ -8,6 +8,7 @@ import NewPet from '../screens/NewPet';
 import Profile from '../screens/Profile';
 import Ficha from '../screens/Ficha';
 import FichaDetalhe from '../screens/FichaDetalhe';
+import NewFicha from '../screens/NewFicha';
 
 
 const Tab = createBottomTabNavigator();
@@ -19,6 +20,7 @@ export default () => (
         <Tab.Screen name="NewPet" component={NewPet} />
         <Tab.Screen name="Profile" component={Profile} />
         <Tab.Screen name="FichaDetalhe" component={FichaDetalhe} />
+        <Tab.Screen name="NewFicha" component={NewFicha} />
     </Tab.Navigator>
 
 );

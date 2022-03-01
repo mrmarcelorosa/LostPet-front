@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Text, StyleSheet, View, TextInput, Image } from 'react-native';
-import { Container, Scroller, HeaderArea, HeaderTitle } from './style';
+import { Container, Scroller, HeaderArea, HeaderTitle, ConfirmButtonText, CancelButton, CancelButtonText, ConfirmButton } from './style';
 
 export default ({ route, navigation }) => {
 
@@ -8,17 +8,10 @@ export default ({ route, navigation }) => {
     const [image, setImage] = useState(route.params.foto);
 
     const styles = StyleSheet.create({
-        container: {
-            paddingTop: 50,
-        },
         tinyLogo: {
             width: 120,
             height: 120,
             borderRadius: 20,
-        },
-        logo: {
-            width: 66,
-            height: 58,
         },
         dadosPet: {
             borderRadius: 20,
@@ -27,13 +20,20 @@ export default ({ route, navigation }) => {
             flexDirection: 'row',
         },
         info: {
-            flex:1,
-            alignItems:'center',  
+            flex: 1,
+            alignItems: 'center',
         },
-        textInfo:{
-            color:'#9e7865',
-            fontSize:18,
-            fontWeight:'bold',
+        textInfo: {
+            color: '#9e7865',
+            fontSize: 18,
+            fontWeight: 'bold',
+        },
+        itensArea: {
+            height: '48%',
+            marginBottom: '2%',
+        },
+        btnArea: {
+            alignItems: 'center',
         },
 
     });
@@ -45,6 +45,14 @@ export default ({ route, navigation }) => {
         setPet(route.params)
         setImage(route.params.foto)
     }, [route]);
+
+    const handleClick = (item) => {
+        navigation.navigate('NewFicha', { ...item});
+    }
+
+    const handleVoltar = () => {
+        navigation.navigate('Ficha');
+    }
 
 
     return (
@@ -65,17 +73,28 @@ export default ({ route, navigation }) => {
                             uri: image,
                         }}
                     />
-
-                    
                     <View style={styles.info}>
                         <Text style={styles.textInfo}>{pet.nome}</Text>
-                        <Text style={styles.textInfo}>{pet.sexo=="m"? 'Macho': 'Femêa'}</Text>
-                        <Text style={styles.textInfo}>{pet.castrado? 'Castrado': 'Não castrado'}</Text>
+                        <Text style={styles.textInfo}>{pet.sexo == "m" ? 'Macho' : 'Femêa'}</Text>
+                        <Text style={styles.textInfo}>{pet.castrado ? 'Castrado' : 'Não castrado'}</Text>
                         <Text style={styles.textInfo}>{pet.dataNascimento}</Text>
                     </View>
-
                 </View>
             </Scroller>
+            <Scroller style={styles.itensArea}>
+
+            </Scroller>
+            <View style={styles.btnArea}>
+                <ConfirmButton onPress={() => handleClick(pet)}>
+                    <ConfirmButtonText>NOVO ITEM</ConfirmButtonText>
+                </ConfirmButton>
+
+                <CancelButton onPress={() => handleVoltar()} >
+                    <CancelButtonText>VOLTAR</CancelButtonText>
+                </CancelButton>
+            </View>
+
+
 
         </Container>
     );

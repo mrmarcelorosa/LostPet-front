@@ -23,8 +23,34 @@ export const HeaderTitle = styled.Text`
     color: #9e7865;
 `;
 
-const Avatar = styled.Image`
-    width: 88px;
-    height: 88px;
-    border-radius: 20px;
+export const ConfirmButton = styled.TouchableOpacity`
+    height: 40px;
+    width: 85%;
+    background-color: #9e7865;
+    border-radius: 30px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px
+`;
+
+export const ConfirmButtonText = styled.Text`
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: bold;
+`;
+
+export const CancelButton = styled.TouchableOpacity`
+    height: 40px;
+    width: 85%;
+    background-color: #ffffff;
+    border-radius: 30px;
+    border-color: #9e7865;
+    border-width: 2px;
+    justify-content: center;
+    align-items: center;
+`;
+export const CancelButtonText = styled.Text`
+    font-size: 18px;
+    color: #9e7865;
+    font-weight: bold;
 `;
